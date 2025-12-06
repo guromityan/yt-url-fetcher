@@ -1,50 +1,48 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: 0.0.0 -> 1.0.0 (Initial Ratification)
+- Added Principles:
+  - I. 単一責任の原則 (Single Responsibility)
+  - II. 標準入出力とCLIの重視 (Standard I/O & CLI)
+  - III. 日本語優先 (Japanese First)
+  - IV. テスト駆動 (Test Driven)
+  - V. シンプルさ (Simplicity)
+- Templates requiring updates: ✅ Verified (Generic templates are compatible)
+-->
+# yt-url-fetcher Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. 単一責任の原則 (Single Responsibility)
+YouTube等のURL取得機能に集中し、複雑な解析や変換（ダウンロード、フォーマット変換など）は行わない。一つのツールは一つのことをうまくやるべきである。
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. 標準入出力とCLIの重視 (Standard I/O & CLI)
+UNIX哲学に従い、テキストストリームとしてデータを扱い、パイプライン処理を可能にする。入力はstdin/引数から受け取り、結果はstdoutへ、エラーはstderrへ出力する。JSON形式の出力もサポートし、他のツールとの連携を容易にする。
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. 日本語優先 (Japanese First)
+ドキュメント、コード内のコメント、ユーザーへのメッセージ、コミットメッセージなど、あらゆるアウトプットは日本語を第一言語とする。これにより、主要な利用者である日本の開発者にとっての理解しやすさを最優先する。
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. テスト駆動 (Test Driven)
+信頼性を担保するため、機能実装前にテストを作成する（TDD）。テストはドキュメントの一部としても機能し、変更に対する恐怖を取り除く。高いテストカバレッジを維持する。
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. シンプルさ (Simplicity)
+必要最小限の機能から始め、YAGNI (You Aren't Gonna Need It) 原則に従う。複雑さはバグの温床であり、メンテナンスコストを増大させるため、常にシンプルな解決策を選択する。
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## 技術スタックと制約
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### 実装言語と環境
+CLIツールとして配布・実行が容易な言語（Goなど）を選択する。外部依存を最小限に抑え、シングルバイナリでの配布を目指す。
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### セキュリティ
+外部入力（URLなど）は常に信頼できないものとして扱い、適切なバリデーションを行う。
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## 開発ワークフロー
+
+### 品質管理
+全てのコード変更において、既存のテストが通過すること、および新しい機能に対するテストが追加されていることを確認する。Linterによる静的解析を行い、コードスタイルを統一する。
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+本憲章はプロジェクトの全ての慣習に優先する。憲章の修正は、明確な理由とドキュメント化を伴うPull Requestを通じて行われ、チームの合意形成を経て承認される。バージョン管理はセマンティックバージョニングに従う。
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-06 | **Last Amended**: 2025-12-06
