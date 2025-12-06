@@ -39,12 +39,16 @@ export YOUTUBE_API_KEY="your_api_key_here"
 ### チャンネルの動画一覧を取得
 
 ```bash
+./yt-url-fetcher -c <CHANNEL_ID>
+# または
 ./yt-url-fetcher --channel <CHANNEL_ID>
 ```
 
 ### プレイリストの動画一覧を取得
 
 ```bash
+./yt-url-fetcher -p <PLAYLIST_ID>
+# または
 ./yt-url-fetcher --playlist <PLAYLIST_ID>
 ```
 
